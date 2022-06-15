@@ -8,7 +8,10 @@
       />
       <div class="card-body pb-0">
         <h5 class="card-title">
-          <router-link :to="{name: 'Product-View', params: {id: product.id} }">
+          <router-link :to="{
+              name: 'Product-View',
+              params: {id: product.id, cardTitle: cardTitle}
+            }">
             {{ cardTitle }}
           </router-link>
         </h5>

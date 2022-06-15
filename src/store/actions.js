@@ -14,7 +14,6 @@ export const getProductById = ({ commit }, productId) => {
   axios
     .get(`https://jsonplaceholder.typicode.com/photos/${productId}`)
     .then((response) => {
-      console.log(response.data);
       commit('GetProductById', response.data);
     });
 };
