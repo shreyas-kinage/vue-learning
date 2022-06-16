@@ -31,7 +31,7 @@
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  0 Cart
+                  {{ cartItemCount }} Cart
                 </button>
                 <!-- eslint-disable vuejs-accessibility/click-events-have-key-events -->
                 <div @click="$event.stopPropagation()">
@@ -53,6 +53,11 @@ export default {
   name: 'AppHeader',
   components: {
     MiniCart,
+  },
+  computed: {
+    cartItemCount() {
+      return this.$store.getters.cartItemCount;
+    },
   },
 };
 </script>

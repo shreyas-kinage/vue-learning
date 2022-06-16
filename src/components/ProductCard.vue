@@ -15,11 +15,11 @@
             {{ cardTitle }}
           </router-link>
         </h5>
-        <strong>${{ product.id * 23 / 5 }}</strong>
+        <strong>${{ product.price }}</strong>
         <p class="card-text pb-3">{{ product.title }}</p>
       </div>
       <div class="d-flex justify-content-center align-items-center mb-2">
-        <button class="btn btn-secondary">Add to cart</button>
+        <button class="btn btn-secondary" @click="addToCart()">Add to cart</button>
       </div>
     </div>
   </div>
@@ -37,6 +37,14 @@ export default {
   mounted() {
     /* eslint-disable prefer-destructuring */
     this.cardTitle = this.product.title.split(' ', 1)[0];
+  },
+  methods: {
+    addToCart() {
+      this.$store.dispatch('allToCart', {
+        product: this.product,
+        quantity: 1,
+      });
+    },
   },
 };
 </script>
