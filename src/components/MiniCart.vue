@@ -12,7 +12,8 @@
             {{ item.quantity }} x ${{ item.product.price }}
           </div>
           <div class="d-flex align-items-center">
-            <a href="#" class="badge badge-secondary">remove</a>
+            <a href="#" class="badge badge-secondary"
+              @click.prevent="removeProductFromCart(item.product)">remove</a>
           </div>
         </div>
       <hr class="my-3" />
@@ -23,7 +24,7 @@
     </div>
     <div class="d-flex justify-content-between px-2">
         <span>Total: ${{ cartTotalPrice }}</span>
-        <a href="#">Clear Cart</a>
+        <a href="#" @click.prevent="clearCart()">Clear Cart</a>
     </div>
   </div>
 </template>
@@ -37,6 +38,14 @@ export default {
     },
     cartTotalPrice() {
       return this.$store.getters.cartTotalPrice;
+    },
+  },
+  methods: {
+    removeProductFromCart(product) {
+      this.$store.dispatch('removeProductFromCart', product);
+    },
+    clearCart() {
+      this.$store.dispatch('clearCart');
     },
   },
 };

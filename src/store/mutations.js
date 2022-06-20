@@ -18,3 +18,11 @@ export const AddToCart = (state, { product, quantity }) => {
 
   state.cart.push({ product, quantity });
 };
+
+export const RemoveFromProduct = (state, product) => {
+  state.cart = state.cart.filter((item) => item.product.id !== product.id);
+};
+
+export const ClearCart = (state) => {
+  state.cart = [];
+};

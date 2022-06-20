@@ -31,3 +31,11 @@ export const getProductById = ({ commit }, productId) => {
 export const allToCart = ({ commit }, { product, quantity }) => {
   commit('AddToCart', { product, quantity });
 };
+
+export const removeProductFromCart = ({ commit }, product) => {
+  commit('RemoveFromProduct', product);
+};
+
+export const clearCart = ({ commit }) => {
+  commit('ClearCart');
+};
